@@ -2,7 +2,7 @@
 apply plugin: 'war'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
-apply plugin: 'sonar-runner'
+
 apply plugin: 'cobertura'
 
 
@@ -15,7 +15,7 @@ buildscript {
 
    dependencies {
    classpath 'net.saliman:gradle-cobertura-plugin:2.2.4'
-   classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.3'
+
    }
  }
 
@@ -70,14 +70,4 @@ uploadArchives {
            dirs 'repos'
        }
     }
-}
-sonarRunner {
-	toolVersion = '2.4'  // default = '2.3'
-	sonarProperties {
-		property "sonar.jdbc.url", "jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance"
-		property "sonar.jdbc.driver", "com.mysql.jdbc.Driver"
-		property "sonar.jdbc.username", "root"
-		property "sonar.jdbc.password", "root"
-		property "sonar.host.url", "http://172.27.59.137:9000"
-	}
 }
